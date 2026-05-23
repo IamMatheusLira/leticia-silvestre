@@ -1,0 +1,1630 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <title>Letícia Nutricionista</title>
+    <meta name="description" content="Ajudo mulheres a conquistarem uma relação equilibrada com a alimentação, sem dietas malucas ou culpa. Especialista em nutrição comportamental e saúde da mulher.">
+    <link rel="icon" type="image/png" href="logoleticia.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --sage: #a8b5a0;
+            --lavanda: #36273f;
+            --branco: #ffffff;
+            --cinza-suave: #f8f8f8;
+            --cinza-escuro: #2c2c2c;
+            --sage-light: #c5d1be;
+            --lavanda-light: #c8bdd0;
+            --shadow: rgba(44, 44, 44, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.7;
+            color: var(--cinza-escuro);
+            background: var(--branco);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-alt {
+            background-color: var(--cinza-suave);
+        }
+
+        h1, h2, h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            line-height: 1.25;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 3.8rem);
+            margin-bottom: 1.2rem;
+            color: var(--sage);
+            line-height: 1.1;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            margin-bottom: 2rem;
+            color: var(--sage);
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--cinza-escuro);
+            font-weight: 400;
+            line-height: 1.2;
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: var(--cinza-escuro);
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: var(--sage-light);
+            color: var(--branco);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border: 2px solid var(--sage-light);
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(168, 181, 160, 0.3);
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.6s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 30px rgba(197, 209, 190, 0.4);
+            background: var(--sage);
+            color: var(--branco);
+            border-color: var(--sage);
+        }
+
+        .btn-secondary {
+            background: var(--lavanda);
+            color: var(--branco);
+            box-shadow: 0 8px 25px rgba(173, 160, 181, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: var(--sage);
+            box-shadow: 0 12px 35px rgba(168, 181, 160, 0.4);
+        }
+
+        .btn-final {
+            background: var(--branco) !important;
+            color: var(--sage) !important;
+            border-color: var(--sage-light) !important;
+        }
+
+        .btn-final:hover {
+            background: var(--branco) !important;
+            color: var(--sage) !important;
+            border-color: var(--sage) !important;
+            box-shadow: 0 8px 30px rgba(168, 181, 160, 0.4);
+        }
+
+        /* Header */
+        .header {
+            position: relative;
+            width: 100%;
+            background: #a8b5a0;
+            padding: 0.6rem 0;
+            box-shadow: 0 2px 10px rgba(168, 181, 160, 0.3);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo:hover {
+            opacity: 0.8;
+        }
+
+        .logo-mark {
+            width: 28px;
+            height: 28px;
+            margin-bottom: 3px;
+            filter: brightness(0) saturate(100%) invert(100%);
+        }
+
+        .logo-mark img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .logo-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--branco);
+            letter-spacing: 0.8px;
+            margin-bottom: 1px;
+            line-height: 1;
+        }
+
+        .logo-subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 7px;
+            font-weight: 400;
+            color: var(--branco);
+            opacity: 0.9;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            line-height: 1;
+        }
+
+        /* Navigation adjustments */
+        .nav {
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--branco);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            font-size: 13px;
+            opacity: 0.9;
+        }
+
+        .nav-links a:hover {
+            color: var(--branco);
+            opacity: 1;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: calc(100vh - 60px);
+            padding: 0;
+            background: #ffffff;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 55%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .hero-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+        }
+
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                linear-gradient(to right, #ffffff 0%, rgba(255, 255, 255, 0.85) 15%, rgba(255, 255, 255, 0.15) 40%, transparent 60%),
+                linear-gradient(to bottom, transparent 70%, rgba(255, 255, 255, 0.4) 90%, #ffffff 100%),
+                linear-gradient(to top, #ffffff 0%, transparent 8%);
+        }
+
+        @keyframes floatLarge {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(2deg); }
+        }
+
+        @keyframes floatMedium {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(-1deg); }
+        }
+
+        @keyframes floatSmall {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            padding: 0 60px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .hero h1 {
+            color: var(--sage);
+            margin-bottom: 2rem;
+        }
+
+        .hero-text {
+            text-align: left;
+            position: relative;
+            max-width: 600px;
+        }
+
+        .hero .subtitle {
+            font-size: 0.95rem;
+            margin-bottom: 4rem;
+            color: var(--cinza-escuro);
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        /* Empathy Section */
+        .empathy {
+            background: var(--sage);
+            color: var(--branco);
+        }
+
+        .empathy h2 {
+            text-align: center;
+            color: var(--branco);
+            margin-bottom: 3rem;
+            font-size: 1.8rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .pain-points {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .pain-point {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .pain-point h3 {
+            color: var(--branco);
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .pain-point p {
+            color: var(--branco);
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+
+        .empathy-cta {
+            text-align: center;
+            margin-top: 50px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .empathy-cta-text {
+            font-size: 1.1rem;
+            color: var(--branco);
+            margin-bottom: 30px;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+
+        .empathy-cta-button {
+            display: inline-block;
+            background: var(--branco);
+            color: var(--sage);
+            padding: 15px 40px;
+            border: 2px solid var(--branco);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+        }
+
+        .empathy-cta-button:hover {
+            background: var(--branco);
+            color: var(--sage);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(255, 255, 255, 0.4);
+            border-color: var(--branco);
+        }
+
+        /* About Section */
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 500px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .credentials {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .credential {
+            background: var(--cinza-suave);
+            padding: 1rem 1.5rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--cinza-escuro);
+        }
+
+        /* Methodology Section */
+        .methodology {
+            background: var(--cinza-suave);
+        }
+
+        .methodology h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .step {
+            background: var(--branco);
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .step:hover {
+            transform: translateY(-5px);
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--sage);
+            color: var(--branco);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 300;
+            font-family: 'Cormorant Garamond', serif;
+            flex-shrink: 0;
+            box-shadow: 0 5px 20px rgba(168, 181, 160, 0.3);
+            margin: 0 auto 1.5rem;
+        }
+
+        /* Specialties Section */
+        .specialties {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+
+        .specialty {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: var(--branco);
+            border-radius: 20px;
+            box-shadow: 0 15px 40px var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .specialty:hover {
+            transform: translateY(-10px);
+        }
+
+        .specialty-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            font-size: 3rem;
+            color: var(--sage);
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 120px 0;
+            background: var(--branco);
+        }
+
+        .testimonials h2 {
+            text-align: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.8rem;
+            color: var(--sage);
+            margin-bottom: 60px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .testimonials-container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .testimonials-grid {
+            display: flex;
+            gap: 30px;
+            padding: 0 20px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .testimonials-grid::-webkit-scrollbar {
+            display: none;
+        }
+
+
+        .testimonial-card {
+            background: var(--branco);
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            border-left: 4px solid var(--sage);
+            position: relative;
+            transition: all 0.3s ease;
+            flex: 0 0 400px;
+            min-height: 280px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .testimonial-card:nth-child(2) {
+            border-left-color: var(--lavanda);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(168, 181, 160, 0.15);
+        }
+
+        .testimonial-content p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: var(--cinza-escuro);
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .testimonial-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center 40%;
+            border: 2px solid var(--sage);
+        }
+
+        .testimonial-author h4 {
+            font-weight: 600;
+            color: var(--sage);
+            margin-bottom: 4px;
+        }
+
+        .testimonial-author span {
+            font-size: 0.9rem;
+            color: #666;
+            font-weight: 300;
+        }
+
+        .testimonials-cta {
+            text-align: center;
+            margin-top: 60px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .testimonials-cta-text {
+            font-size: 1.2rem;
+            color: var(--cinza-escuro);
+            margin-bottom: 30px;
+            font-weight: 400;
+            font-family: 'Cormorant Garamond', serif;
+            opacity: 0.9;
+        }
+
+        .testimonials-cta-button {
+            display: inline-block;
+            background: var(--sage);
+            color: var(--branco);
+            padding: 18px 45px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+            box-shadow: 0 8px 25px rgba(168, 181, 160, 0.3);
+        }
+
+        .testimonials-cta-button:hover {
+            background: var(--lavanda);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(173, 160, 181, 0.4);
+        }
+
+        .testimonials-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--sage);
+            color: var(--branco);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 15px rgba(168, 181, 160, 0.3);
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .testimonials-nav:hover {
+            background: var(--lavanda);
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 6px 20px rgba(173, 160, 181, 0.4);
+        }
+
+        .testimonials-nav.prev {
+            left: 10px;
+        }
+
+        .testimonials-nav.next {
+            right: 10px;
+        }
+
+        .testimonials-nav:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .testimonials-nav:disabled:hover {
+            transform: translateY(-50%);
+            background: var(--sage);
+        }
+
+
+        /* FAQ Section */
+        .faq-item {
+            background: var(--branco);
+            margin-bottom: 1rem;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px var(--shadow);
+        }
+
+        .faq-question {
+            padding: 2rem;
+            background: var(--branco);
+            border: none;
+            width: 100%;
+            text-align: left;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--sage);
+            cursor: pointer;
+            transition: background 0.3s ease;
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-toggle {
+            font-size: 1.5rem;
+            color: var(--sage);
+            font-weight: 300;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+
+        .faq-question:hover {
+            background: var(--cinza-suave);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            padding: 0 2rem;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+            padding: 0 2rem 2rem 2rem;
+        }
+
+        .faq-answer p {
+            color: var(--cinza-escuro);
+            line-height: 1.6;
+            font-weight: 300;
+            margin: 0;
+            padding-top: 10px;
+            padding-bottom: 15px;
+            opacity: 0.8;
+        }
+
+        /* Contact Section */
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-method {
+            background: var(--branco);
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px var(--shadow);
+        }
+
+        .contact-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: var(--sage);
+            font-size: 3rem;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            background: linear-gradient(135deg, var(--lavanda), var(--sage));
+            color: var(--branco);
+            text-align: center;
+        }
+
+        .final-cta h2,
+        .final-cta p {
+            color: var(--branco);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--cinza-escuro);
+            color: var(--branco);
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: auto 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 1.5rem;
+            align-items: start;
+        }
+
+        .footer-section h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--sage);
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section p {
+            color: #b0b0b0;
+            opacity: 0.9;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            text-decoration: none;
+        }
+
+        .footer-section.contact-section {
+            text-align: left;
+        }
+
+        @media (max-width: 768px) {
+            .footer-section.contact-section {
+                text-align: center;
+            }
+
+            .footer-section.contact-section p {
+                justify-content: center;
+            }
+        }
+
+        .footer-section.contact-section p {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section.contact-section i {
+            color: var(--sage);
+            width: 16px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .footer-section.contact-section a {
+            transition: color 0.3s ease;
+        }
+
+        .footer-section.contact-section a:hover {
+            color: var(--sage) !important;
+        }
+
+        .footer div[style*="border-top"] p {
+            color: #999999;
+            opacity: 0.8;
+            margin-bottom: 0.3rem;
+        }
+
+        .footer div[style*="border-top"] p:last-child {
+            margin-bottom: 0;
+        }
+
+        .footer-logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .footer-logo img {
+            width: 50px;
+            height: auto;
+            filter: brightness(0) saturate(100%) invert(100%);
+            opacity: 0.9;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icons a {
+            color: var(--sage);
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: var(--lavanda);
+        }
+
+        /* WhatsApp Fixed Button */
+        .whatsapp-fixed {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .whatsapp-fixed:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+        }
+
+        .whatsapp-fixed i {
+            color: white;
+            font-size: 1.8rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        /* Tablet Responsiveness */
+        @media (max-width: 1024px) {
+            .hero-bg {
+                width: 50%;
+            }
+
+            .hero-content {
+                padding: 0 40px;
+            }
+
+            .hero-text {
+                max-width: 450px;
+            }
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                min-height: calc(100vh - 50px);
+            }
+
+            .hero-bg {
+                display: none;
+            }
+
+            .hero-content {
+                padding: 0 20px;
+                justify-content: center;
+            }
+
+            .hero-text {
+                text-align: center;
+                max-width: 100%;
+            }
+
+            .header {
+                padding: 0.4rem 0;
+            }
+
+            .logo-mark {
+                width: 22px;
+                height: 22px;
+                margin-bottom: 2px;
+            }
+
+            .logo-name {
+                font-size: 9px;
+                letter-spacing: 0.6px;
+            }
+
+            .logo-subtitle {
+                font-size: 6px;
+                letter-spacing: 1px;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .hero {
+                min-height: calc(100vh - 50px);
+                padding: 0;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                text-align: center;
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            .specialties {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-methods {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.85rem;
+            }
+
+            .pain-points {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+
+            .empathy-cta {
+                margin-top: 40px;
+            }
+
+            .empathy-cta-text {
+                font-size: 1rem;
+                margin-bottom: 20px;
+            }
+
+            .empathy-cta-button {
+                padding: 12px 25px;
+                font-size: 0.9rem;
+                width: 100%;
+                max-width: 280px;
+            }
+
+            .testimonials-grid {
+                display: flex;
+                gap: 20px;
+                overflow-x: auto;
+                scroll-behavior: smooth;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+                padding: 0 10px;
+            }
+
+            .testimonials-grid::-webkit-scrollbar {
+                display: none;
+            }
+
+            .testimonial-card {
+                flex: 0 0 calc(100vw - 80px);
+                max-width: 280px;
+                min-height: 250px;
+            }
+
+            .testimonials-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+
+            .testimonials-nav.prev {
+                left: 5px;
+            }
+
+            .testimonials-nav.next {
+                right: 5px;
+            }
+
+            .testimonial-card {
+                padding: 25px 20px;
+            }
+
+            .testimonials-cta {
+                margin-top: 40px;
+            }
+
+            .testimonials-cta-text {
+                font-size: 1.1rem;
+                margin-bottom: 25px;
+            }
+
+            .testimonials-cta-button {
+                padding: 15px 35px;
+                font-size: 1rem;
+                width: 100%;
+                max-width: 320px;
+            }
+
+            .pain-points {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            /* FAQ mobile spacing */
+            .faq-answer p {
+                padding-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <a href="#" class="logo">
+                <div class="logo-mark">
+                    <img src="logoleticia.png" alt="Logo Letícia Silvestre">
+                </div>
+                <div class="logo-text">
+                    <div class="logo-name">LETÍCIA SILVESTRE</div>
+                    <div class="logo-subtitle">NUTRICIONISTA</div>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#metodologia">Metodologia</a></li>
+                <li><a href="#especialidades">Especialidades</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg">
+            <img src="fotosobrecapa.jpg" alt="Letícia Nutricionista">
+        </div>
+        <div class="hero-content fade-in-up">
+            <div class="hero-text">
+                <h1>Sua jornada para uma vida mais saudável começa aqui</h1>
+                <p class="subtitle">Aqui você encontra um espaço seguro para transformar sua relação com a comida, com apoio, orientação e acolhimento, buscando o equilíbrio entre saúde física e emocional.</p>
+                <a href="https://wa.me/5544999604891?text=Olá! Quero agendar minha consulta agora" class="btn" target="_blank">Agendar minha consulta agora</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Empathy Section -->
+    <section class="empathy section">
+        <div class="container">
+            <h2>O que realmente está sabotando seus resultados...</h2>
+            <div class="pain-points">
+                <div class="pain-point">
+                    <h3><i class="fas fa-sync-alt"></i></h3>
+                    <p>Você já tentou várias dietas e sempre volta ao peso inicial?</p>
+                </div>
+                <div class="pain-point">
+                    <h3><i class="fas fa-sad-tear"></i></h3>
+                    <p>Se sente culpada depois de exagerar comendo o que gosta?</p>
+                </div>
+                <div class="pain-point">
+                    <h3><i class="fas fa-balance-scale"></i></h3>
+                    <p>Vive uma guerra constante com a balança?</p>
+                </div>
+                <div class="pain-point">
+                    <h3><i class="fas fa-heart-broken"></i></h3>
+                    <p>Nota que sentimentos do dia a dia afetam suas escolhas alimentares?</p>
+                </div>
+                <div class="pain-point">
+                    <h3><i class="fas fa-baby"></i></h3>
+                    <p>Cuida de todos ao seu redor, mas se coloca por último?</p>
+                </div>
+                <div class="pain-point">
+                    <h3><i class="fas fa-running"></i></h3>
+                    <p>Sente que seu corpo não responde aos treinos?</p>
+                </div>
+            </div>
+            <div class="empathy-cta">
+                <div class="empathy-cta-text">Se você reconheceu sua história em algum desses cenários...</div>
+                <a href="https://wa.me/5544999604891?text=Olá! Quero transformar minha relação com a comida" class="empathy-cta-button" target="_blank">Vamos encontrar sua solução personalizada</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="sobre">
+        <div class="container">
+            <div class="about">
+                <div class="about-image">
+                    <img src="fotosobre.jpg" alt="Letícia Silvestre Nutricionista" style="width: 100%; height: 100%; object-fit: cover; object-position: center 20%; border-radius: 20px;">
+                </div>
+                <div class="about-content">
+                    <h2>Autoconhecimento, Autonomia e Equilíbrio</h2>
+                    <p>São os pilares que guiam meu trabalho para resultados duradouros.</p>
+                    <p>Sei que pode ser frustrante não conseguir os resultados que você busca, sempre voltando ao ponto de partida. Muitas vezes, isso acontece porque emoções do dia a dia também influenciam nossa alimentação, mesmo sem percebermos. Durante nossas consultas, crio um processo totalmente personalizado para sua realidade.</p>
+                    <p>Por isso trabalho de forma diferente. Como nutricionista comportamental, trago uma metodologia que une ciência e acolhimento para você desenvolver uma relação saudável com a comida, vencer a compulsão alimentar e alcançar o bem-estar de forma realista e sustentável.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Methodology Section -->
+    <section class="methodology section" id="metodologia">
+        <div class="container">
+            <h2>Como trabalhamos juntas</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Escuta atenta</h3>
+                    <p>Primeira consulta é dedicada para entender sua trajetória e criar uma base sólida para resultados reais.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Estratégia personalizada</h3>
+                    <p>Plano personalizado que equilibra seu estilo de vida com as mudanças essenciais para sua saúde.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Evolução contínua</h3>
+                    <p>Acompanhamento ajustável e constante, com suporte em cada etapa da transformação.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Liberdade alimentar</h3>
+                    <p>Autonomia, saúde e leveza duradouras, sem dependência de dietas restritivas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specialties Section -->
+    <section class="section" id="especialidades">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 3rem;">Minhas especialidades</h2>
+            <div class="specialties">
+                <div class="specialty">
+                    <div class="specialty-icon"><i class="fas fa-heartbeat"></i></div>
+                    <h3>Nutrição comportamental</h3>
+                    <p>Trabalho com todos os aspectos que influenciam sua alimentação, desde emoções evidentes até sensações cotidianas como frustração e improdutividade.</p>
+                </div>
+                <div class="specialty">
+                    <div class="specialty-icon"><i class="fas fa-weight"></i></div>
+                    <h3>Saúde da mulher</h3>
+                    <p>Cuidado integral para cada fase da sua vida, considerando aspectos hormonais e necessidades específicas femininas.</p>
+                </div>
+                <div class="specialty">
+                    <div class="specialty-icon"><i class="fas fa-running"></i></div>
+                    <h3>Nutrição esportiva</h3>
+                    <p>Performance, energia e recuperação ideais para quem pratica atividade física, do iniciante ao atleta.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2>O que minhas pacientes dizem</h2>
+            <div class="testimonials-container">
+                <button class="testimonials-nav prev" onclick="scrollTestimonials('prev')">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="testimonials-nav next" onclick="scrollTestimonials('next')">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Desde a nossa primeira consulta eu já senti que estava no caminho certo. Ela foi super atenciosa, me ouviu com calma e me deixou super à vontade. Me senti acolhida de verdade. Minha alimentação mudou bastante desde então, de um jeito super leve, sem neura. E o melhor: por não ser uma dieta restritiva, tô conseguindo seguir direitinho (milagre? Não! Só uma nutri que entende a vida real mesmo). Hoje me sinto mais equilibrada, com mais energia e, principalmente, feliz por estar cuidando de mim de um jeito real e totalmente sustentável."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="depoimento1.jpeg" alt="Foto da paciente" />
+                        <div class="author-info">
+                            <h4>Isadora</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Minha experiência foi simplesmente incrível! Eu estava cheia de receio de procurar ajuda, mas logo na primeira consulta me senti super à vontade e acolhida. Aos poucos comecei a ver mudanças de verdade no meu corpo e até na minha autoestima. O acompanhamento é leve, humano e cheio de dicas que realmente funcionam. Foi um passo que mudou tudo pra mim, e sou muito grata por ter tomado essa decisão."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="depoimento2.jpeg" alt="Foto da paciente" />
+                        <div class="author-info">
+                            <h4>Geovana</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Estou feliz demais em fazer parte de time que é tão bem cuidado por você!! Estou amando cada evolução, é tão satisfatório voltar a se amar olhando no espelho cada definição, cada músculozinho rsrs. Ver as pessoas comentando sobre o meu corpo, como estou evoluindo, é satisfatório demais! Eu nunca deixo de falar sobre quem tem sido meu suporte nesse processo, o quanto seu acompanhamento tem sido primordial pra mim!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="depoimento3.jpeg" alt="Foto da paciente" />
+                        <div class="author-info">
+                            <h4>Daniele</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Eu nunca consegui ter acompanhamento nutricional por mais de 2 meses seguidos, eu desistia e ia em outra nutri, todas me jogavam no chão pq eu estava gorda por que eu queria. Estou a meses acompanhando com a Letícia e ela me trouxe um olhar diferente da vida e da alimentação, acolheu minhas dificuldades junto comigo e seguimos tentando melhorar cada uma delas, agradeço pelo seu trabalho e empatia, não conseguiria emagrecer com a constância que tenho hoje sem o seu trabalho."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="depoimento4.jpeg" alt="Foto da paciente" />
+                        <div class="author-info">
+                            <h4>Leticia</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Quero deixar registrado aqui o quanto sou grata por todo o cuidado e atenção nesse processo. Perdi 7kg, mas ganhei muito mais do que isso: qualidade de vida. Melhorei meu sono, estou mais ativa, focada, cheia de energia… e o melhor: me senti bem em cada etapa. Nada forçado, nada sofrido. Fui acolhida de verdade, respeitou meu ritmo e fez tudo parecer leve."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="depoimento5.jpeg" alt="Foto da paciente" />
+                        <div class="author-info">
+                            <h4>Janaina</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"A forma como fui acolhida, com tanto respeito e cuidado, fez toda a diferença. Não foi só sobre alimentação, foi sobre olhar pra mim como um todo. Ela me ajudou em momentos que nem eram só sobre comida e eu sou muito grata por isso. O consultório tem um clima tão leve e seguro que me senti confortável desde o início. Adoro como a Letícia se importa e realmente quer ver nosso bem."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>Yahanna</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Conhecer a Letícia foi mais do que conhecer uma nutricionista, foi poder me olhar no espelho novamente, e decidir acreditar que eu poderia reconquistar minha autoestima com seu apoio. Cada consulta envolve sempre o respeito, aos meus limites e desejos. Eu sempre consigo sair de lá com vontade de começar de novo e de corrigir meus erros. Em nenhum momento ela veio com fórmulas mágicas, querendo me medicar ou me diagnosticar, ela apenas me tratou como um ser humano que vive muitos processos ao mesmo tempo, e isso tem me ajudado a me entender melhor."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="depoimento6.jpeg" alt="Foto da paciente" />
+                        <div class="author-info">
+                            <h4>Gabriela</h4>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="testimonials-cta" style="margin-top: 80px;">
+                <a href="https://wa.me/5544999604891?text=Olá! Quero iniciar minha jornada agora" class="testimonials-cta-button" target="_blank">Iniciar minha jornada agora</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 3rem;">Perguntas frequentes</h2>
+            <div class="faq">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Como a nutrição comportamental é diferente?</span>
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>A nutrição comportamental vai além das calorias e macronutrientes. Trabalhamos com padrões alimentares e gatilhos emocionais, tanto os óbvios quanto as sensações cotidianas que nem sempre percebemos no momento.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Quanto tempo para ver resultados?</span>
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Os primeiros resultados comportamentais aparecem nas primeiras semanas. Mudanças físicas e de bem-estar começam a ser notadas entre 4-8 semanas, mas cada pessoa tem seu ritmo único.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Atende online com a mesma qualidade?</span>
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Sim! O atendimento online mantém a mesma qualidade do presencial. Utilizamos ferramentas digitais que permitem acompanhamento completo e personalizado, independente da distância.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Trabalha com atletas e iniciantes?</span>
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Atendo desde iniciantes na atividade física até atletas de alto rendimento. Minha especialização em nutrição esportiva permite adaptar as estratégias para qualquer nível de atividade.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Como funciona o acompanhamento?</span>
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>O acompanhamento é personalizado e inclui consultas regulares, ajustes no plano conforme sua evolução, suporte via WhatsApp e materiais educativos para sua autonomia alimentar.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Preciso cortar alimentos que gosto?</span>
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Não! Meu trabalho é sobre equilíbrio e liberdade alimentar. Ensinamos como incluir os alimentos que você gosta de forma consciente e prazerosa, sem culpa.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Methods Section -->
+    <section class="section-alt section" id="contato">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 3rem;">Modalidades de atendimento</h2>
+            <div class="contact-methods">
+                <div class="contact-method">
+                    <div class="contact-icon"><i class="fas fa-clinic-medical"></i></div>
+                    <h3>Presencial</h3>
+                    <p>R. Piratininga, 914 - Sobreloja 02<br>Zona 01, Maringá - PR</p>
+                </div>
+                <div class="contact-method">
+                    <div class="contact-icon"><i class="fas fa-laptop"></i></div>
+                    <h3>Online</h3>
+                    <p>Atendimento para todo Brasil com mesma qualidade e acompanhamento personalizado</p>
+                </div>
+                <div class="contact-method">
+                    <div class="contact-icon"><i class="fas fa-users"></i></div>
+                    <h3>Flexibilidade</h3>
+                    <p>Escolha o que melhor se adapta à sua rotina e necessidades</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta section">
+        <div class="container" style="text-align: center;">
+            <h2>Pronta para uma nova relação com a comida?</h2>
+            <p class="subtitle">Vamos construir juntas um caminho de equilíbrio, liberdade e leveza alimentar</p>
+            <a href="https://wa.me/5544999604891?text=Olá! Quero agendar minha primeira consulta" class="btn btn-final" target="_blank">Agendar minha primeira consulta</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="logoleticia.png" alt="Logo Letícia Silvestre" />
+                    </div>
+                </div>
+                <div class="footer-section contact-section">
+                    <h4>Contato</h4>
+                    <p style="color: var(--sage);"><i class="fas fa-phone"></i>(44)99960-4891</p>
+                    <p><i class="fas fa-envelope"></i>nutrileticiasilvestre@gmail.com</p>
+                    <p><a href="https://maps.app.goo.gl/Q9fEgdd3Tf7qTZm7A" target="_blank" style="color: #b0b0b0; text-decoration: none;"><i class="fas fa-map-marker-alt" style="padding-right: 5px;"></i>R. Piratininga, 914 - Sobreloja 02 - Zona 01, Maringá - PR</a></p>
+                </div>
+                <div class="footer-section">
+                    <h4>Redes Sociais</h4>
+                    <div class="social-icons" style="justify-content: center;">
+                        <a href="https://instagram.com/nutrileticiasilvestre" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/5544999604891" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="mailto:nutrileticiasilvestre@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div style="border-top: 1px solid #444; padding-top: 2rem; margin-top: 2rem;">
+                <p>&copy; 2024 Letícia Silvestre - Nutricionista Comportamental. Todos os direitos reservados.</p>
+                <p style="font-size: 0.9rem; opacity: 0.8;">Nutricionista Comportamental - CRN8 19463</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // FAQ Accordion functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                const isActive = faqItem.classList.contains('active');
+                
+                // Close all other FAQ items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // Toggle current item
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                }
+            });
+        }, observerOptions);
+
+        // Apply animation to testimonial cards
+        document.querySelectorAll('.testimonial-card').forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = `opacity 0.8s ease ${index * 0.2}s, transform 0.8s ease ${index * 0.2}s`;
+            observer.observe(card);
+        });
+
+        // Apply animation to pain-point cards
+        document.querySelectorAll('.pain-point').forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = `opacity 0.8s ease ${index * 0.1}s, transform 0.8s ease ${index * 0.1}s`;
+            observer.observe(card);
+        });
+
+        // Observe elements for animation
+        document.querySelectorAll('.step, .specialty, .testimonial, .contact-method').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Testimonials carousel functionality
+        function scrollTestimonials(direction) {
+            const container = document.querySelector('.testimonials-grid');
+            const isMobile = window.innerWidth <= 768;
+            const cardWidth = isMobile ? 300 : 430; // mobile: 280px + 20px gap, desktop: 400px + 30px gap
+            const scrollAmount = cardWidth;
+            
+            if (direction === 'next') {
+                container.scrollLeft += scrollAmount;
+            } else {
+                container.scrollLeft -= scrollAmount;
+            }
+            
+            // Update button states
+            setTimeout(() => {
+                updateNavigationButtons();
+            }, 300);
+        }
+
+        function updateNavigationButtons() {
+            const container = document.querySelector('.testimonials-grid');
+            const prevBtn = document.querySelector('.testimonials-nav.prev');
+            const nextBtn = document.querySelector('.testimonials-nav.next');
+            
+            // Check if at the beginning
+            prevBtn.disabled = container.scrollLeft <= 0;
+            
+            // Check if at the end
+            const maxScroll = container.scrollWidth - container.clientWidth;
+            nextBtn.disabled = container.scrollLeft >= maxScroll - 10; // 10px tolerance
+        }
+
+        // Initialize navigation buttons state
+        document.addEventListener('DOMContentLoaded', () => {
+            updateNavigationButtons();
+            
+            // Update buttons on scroll
+            const container = document.querySelector('.testimonials-grid');
+            container.addEventListener('scroll', updateNavigationButtons);
+        });
+
+    </script>
+
+    <!-- Fixed WhatsApp Button -->
+    <a href="https://wa.me/5544999604891?text=Olá! Quero agendar minha consulta" class="whatsapp-fixed" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+</body>
+</html>
